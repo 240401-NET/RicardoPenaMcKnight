@@ -12,5 +12,11 @@ class User
         password = "password";
         characters[0] = new Character();
     }
+    public User(string userName)
+    {
+        this.userName = userName;
+        password = "password";
+        characters[0] = new Character();
+    }
 
 }

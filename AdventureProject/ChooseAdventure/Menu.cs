@@ -1,25 +1,32 @@
 namespace ChooseAdventure;
 
-class Menu
+public class Menu
 {
-    protected int NumOptions {get; set;}
-    protected Option[] options;
-    protected string PreText {get; set;}
-    protected int Choice {get; set;}
+    public int NumOptions {get; set;}
+    public Option[] options;
+    public string PreText {get; set;}
+    public int Choice {get; set;}
 
     public Menu()
     {
         NumOptions = 0;
         this.PreText = " ";
         options = new Option[NumOptions];
-        DisplayOptions();
     }
     public Menu(string preText)
     {
         NumOptions = 0;
         options = new Option[NumOptions];
         this.PreText = preText;
-        DisplayOptions();
+    }
+    public Menu(string preText, int numOptions)
+    {
+        NumOptions = numOptions;
+        options = new Option[NumOptions];
+        this.PreText = preText;
+        Console.WriteLine(NumOptions);
+        Console.WriteLine(numOptions);
+        Console.WriteLine(options.Length);
     }
 
     public void DisplayOptions()
@@ -27,16 +34,15 @@ class Menu
 
         if (this.PreText != null)
         {
-            Console.WriteLine(PreText);
+            Console.WriteLine(this.PreText);
         }
         for (int i = 0; i < NumOptions; i++)
         {
-            Console.WriteLine($"\n{i + 1}. {options[i].optionText}");
+            Console.WriteLine($"\n {i + 1}. " + options[i].optionText);
         }
-        SelectOption();
     }
 
-    protected void SelectOption()
+    public void SelectOption()
     {
         try{
             Choice = Convert.ToInt32(Console.ReadLine());

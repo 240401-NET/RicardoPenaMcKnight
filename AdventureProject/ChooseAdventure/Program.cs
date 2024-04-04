@@ -31,8 +31,11 @@ class Program
     an int or something potentially which is then taken as an argument for
     the make choice method. The make choice method would need some way of 
     having its choices swapped out every cycle.  */
+
+    public static User? user;
+    public User[]? users;
     static void Main(string[] args)
     {
-        LoginMenu loginMenu = new LoginMenu("Welcome, please login or create a new user account.");
+        LoginMenu loginMenu = new("Welcome, please login or create a new user account.");
     }
 }
