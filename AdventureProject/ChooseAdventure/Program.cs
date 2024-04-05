@@ -32,8 +32,8 @@ class Program
     the make choice method. The make choice method would need some way of 
     having its choices swapped out every cycle.  */
 
-    public static User? user;
-    public User[]? users;
+    public static User? currentUser = new User();
+    public static List<User> users = new List<User>();
     static void Main(string[] args)
     {
         LoginMenu loginMenu = new("Welcome, please login or create a new user account.");

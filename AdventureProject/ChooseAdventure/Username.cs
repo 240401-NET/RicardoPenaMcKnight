@@ -1,7 +1,6 @@
 namespace ChooseAdventure;
 
-{
-    class Username : Menu
+class Username : Menu
 {
     public string? username;
     bool userExists = false;
@@ -28,32 +27,37 @@ namespace ChooseAdventure;
         if(userExists)
         {
             if (input.Length > 0)
-        {
-            username = input;
-            Console.WriteLine("Username set to: " + username);
-        }
-        else
-        {
-            Console.WriteLine("Invalid input. Please enter a valid username.");
-            EnterUsername();
-        }
+            {
+                username = input;
+                Console.WriteLine("Welcome, " + username);
+                Password password = new();
+            }
+        
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid username.");
+                EnterUsername();
+            }
         }
         else
         {
             if (input.Length > 0)
-        {
-            username = input;
-            Console.WriteLine("Username set to: " + username);
-            Program.currentUser = new User(username);
-        }
-        else
-        {
-            Console.WriteLine("Invalid input. Please enter a valid username.");
-            EnterUsername();
-        }
+            {
+                username = input;
+                Console.WriteLine("Username set to: " + username);
+                if (Program.currentUser != null)
+                {
+                    Program.currentUser.UserName = username;
+                    Password password = new();
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid username.");
+                EnterUsername();
+            }
         }
 
     }
 
-}
 }

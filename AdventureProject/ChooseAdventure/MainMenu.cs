@@ -10,5 +10,6 @@ class MainMenu : Menu
         options[1] = new Option("Select Character");
         options[2] = new Option("Exit");
         DisplayOptions();
+        SelectOption();
     }
 }

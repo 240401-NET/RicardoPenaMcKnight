@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 class Password
 {
-    private string? password {get; set;}
+    public string? UserPassword {get; set;}
 
     public Password()
     {
@@ -18,12 +18,16 @@ class Password
         string input = Console.ReadLine() ?? "";
         if (input.Length > 0)
         {
-            password = input;
-            Console.WriteLine("Password set.");
-            if (password.Length < 8 || !Regex.IsMatch(password, @"[0-9]") || !Regex.IsMatch(password, @"[a-z]") || !Regex.IsMatch(password, @"[A-Z]"))
+            UserPassword = input;
+            if (UserPassword.Length < 8 || !Regex.IsMatch(UserPassword, @"[0-9]") || !Regex.IsMatch(UserPassword, @"[a-z]") || !Regex.IsMatch(UserPassword, @"[A-Z]"))
             {
                 Console.WriteLine("Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.");
                 EnterPassword();
+            }
+            else
+            {
+                Console.WriteLine("Password set.");
+                MainMenu mainMenu = new();
             }
         }
         else

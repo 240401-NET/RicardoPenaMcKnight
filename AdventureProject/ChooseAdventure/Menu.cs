@@ -24,9 +24,6 @@ public class Menu
         NumOptions = numOptions;
         options = new Option[NumOptions];
         this.PreText = preText;
-        Console.WriteLine(NumOptions);
-        Console.WriteLine(numOptions);
-        Console.WriteLine(options.Length);
     }
 
     public void DisplayOptions()
