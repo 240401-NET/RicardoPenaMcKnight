@@ -39,6 +39,11 @@ public class Menu
         }
     }
 
+    public void DisplayPreText()
+    {
+        Console.WriteLine(this.PreText);
+    }
+
     public void SelectOption()
     {
         try{
@@ -58,5 +63,20 @@ public class Menu
             Console.WriteLine("Invalid input. Please enter a number between 1 and " + NumOptions);
             SelectOption();
         }
+    }
+
+    public static string InputInformation()
+    {
+        string input = "";
+        try 
+        {
+            input = Console.ReadLine() ?? "";
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message + "\nInvalid input. Please enter a valid input.");
+            InputInformation();
+        }
+        return input;
     }
 }

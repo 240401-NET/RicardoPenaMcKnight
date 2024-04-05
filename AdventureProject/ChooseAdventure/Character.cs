@@ -2,21 +2,21 @@ namespace ChooseAdventure;
 
 class Character
 {
-    private string name {get; set;}
-    private int maxHealth {get; set;}
-    private int currentHealth {get; set;}
+    public string Name {get; set;}
+    public int MaxHealth {get; set;}
+    public int CurrentHealth {get; set;}
 
     public Character()
     {
-        name = "Default";
-        maxHealth = 100;
-        currentHealth = maxHealth;
+        Name = "Default";
+        MaxHealth = 100;
+        CurrentHealth = MaxHealth;
     }
     public Character(string name)
     {
-        this.name = name;
-        maxHealth = 100;
-        currentHealth = maxHealth;
+        this.Name = name;
+        MaxHealth = 100;
+        CurrentHealth = MaxHealth;
     }
 
 }
