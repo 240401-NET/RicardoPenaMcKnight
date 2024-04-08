@@ -1,22 +1,22 @@
 namespace ChooseAdventure;
 
-class User 
+public class User 
 {
     public string UserName {get; set;}
     public string Password {get; set;}
-    public Character[] Characters = new Character[10];
+    public List<Character> Characters = new List<Character>();
 
     public User()
     {
         UserName = "Default";
         Password = "password";
-        Characters[0] = new Character();
+        Characters.Add(new Character());
     }
     public User(string userName)
     {
         this.UserName = userName;
         Password = "password";
-        Characters[0] = new Character();
+        Characters.Add(new Character());
     }
 
 }

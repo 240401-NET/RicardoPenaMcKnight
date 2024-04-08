@@ -1,6 +1,6 @@
 namespace ChooseAdventure;
 
-class Character
+public class Character
 {
     public string Name {get; set;}
     public int MaxHealth {get; set;}

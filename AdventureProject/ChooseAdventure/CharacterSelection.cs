@@ -2,7 +2,7 @@ namespace ChooseAdventure
 {
     class CharacterSelection : Menu
     {
-        Character[] characters;
+        List<Character> characters;
         public CharacterSelection()
         {
             if(Program.currentUser != null)
@@ -11,7 +11,7 @@ namespace ChooseAdventure
             }
             else
             {
-                characters = new Character[10];
+                characters = new List<Character>();
             }
             PreText = "Select a character:";
             foreach (Character? character in characters)
@@ -22,7 +22,7 @@ namespace ChooseAdventure
                 }
             }
             options = new Option[NumOptions];
-            for (int i = 0; i < characters.Length; i++)
+            for (int i = 0; i < characters.Count; i++)
             {
                 if (characters[i] != null)
                 {

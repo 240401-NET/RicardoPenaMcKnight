@@ -1,6 +1,6 @@
 ﻿namespace ChooseAdventure;
 
-class Program
+public class Program
 {
     /*This program will need to start off with an introductory message which
     provides the user with options, then takes input from the user positively
@@ -36,6 +36,49 @@ class Program
     public static List<User> users = new List<User>();
     static void Main(string[] args)
     {
+        // only load users if file exists
+        if (File.Exists("users.json"))
+        {
+            users = Data.LoadUsers();
+            Data.SaveUsers(users);
+        }
+
         LoginMenu loginMenu = new("Welcome, please login or create a new user account.");
+    }
+
+    public static void UpdateUsers()
+    {
+        // Find the user in the list of users and update it
+        int index = FindUserIndex(currentUser);
+        if (index != -1)
+        {
+            users[index] = currentUser;
+            Data.SaveUsers(users);
+        }
+    }
+
+    public static User FindUser(string username)
+    {
+        foreach (User user in users)
+        {
+            if (user.UserName == username)
+            {
+                return user;
+            }
+        }
+        Console.WriteLine("User not found.");
+        return new User();
+    }
+
+    public static int FindUserIndex(User user)
+    {
+        for (int i = 0; i < users.Count; i++)
+        {
+            if (users[i].UserName == user.UserName)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 }

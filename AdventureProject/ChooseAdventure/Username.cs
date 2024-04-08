@@ -26,11 +26,12 @@ class Username : Menu
         
         if(userExists)
         {
-            if (input.Length > 0)
+            if (Program.FindUser(input) != null)
             {
                 username = input;
+                Program.currentUser = Program.FindUser(username);
                 Console.WriteLine("Welcome, " + username);
-                Password password = new();
+                Password password = new(true);
             }
         
             else
@@ -48,7 +49,7 @@ class Username : Menu
                 if (Program.currentUser != null)
                 {
                     Program.currentUser.UserName = username;
-                    Password password = new();
+                    Password password = new(false);
                 }
             }
             else

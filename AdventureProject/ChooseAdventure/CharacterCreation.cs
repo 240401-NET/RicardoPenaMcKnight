@@ -10,7 +10,8 @@ class CharacterCreation : Menu
         characterName = InputInformation();
         if (Program.currentUser != null)
         {
-            Program.currentUser.Characters[0] = new Character(characterName);
+            Program.currentUser.Characters.Add(new Character(characterName));
+            Program.UpdateUsers();
             Console.WriteLine("Character created: " + characterName);
         }
         else
