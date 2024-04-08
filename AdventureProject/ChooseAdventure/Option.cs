@@ -20,6 +20,11 @@ public class Option : IChoosable
         optionText = text;
         this.menu = menu;
     }
+    public Option(string text, Func<Menu> menu)
+    {
+        optionText = text;
+        this.menu = menu();
+    }
 
 
     public void Choose()
@@ -33,9 +38,17 @@ public class Option : IChoosable
                 Username usernameMenu = (Username)menu;
                 usernameMenu.EnterUsername();
             }
-            else if (menu.NumOptions == 0)
+            else if(menu.Type == "Input")
+            {
+                menu.DisplayPreText();
+                menu.Input = Menu.InputInformation();
+                menu.RunMenuFunctions();
+            }
+            else if (menu.Type == "Not Implemented")
             {
                 Console.WriteLine("This option is not yet implemented.");
+                Console.ReadLine();
+                Program.Exit();
             }
             else
             {
@@ -46,7 +59,9 @@ public class Option : IChoosable
         {
             if (optionText == "Exit")
             {
-                Environment.Exit(0);
+                Console.WriteLine("Goodbye!");
+                Console.ReadLine();
+                Program.Exit();
             }
             else
             {

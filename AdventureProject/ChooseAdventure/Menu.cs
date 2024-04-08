@@ -6,6 +6,8 @@ public class Menu
     public Option[] options;
     public string PreText {get; set;}
     public int Choice {get; set;}
+    public string Input {get; set;}
+    public string Type {get; set;}
 
     public Menu()
     {
@@ -48,12 +50,25 @@ public class Menu
     {
         try{
             Choice = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
         }
         catch (Exception e)
         {
             Console.WriteLine(e.Message + "\nInvalid input. Please enter a number between 1 and " + NumOptions);
             SelectOption();
         }
+        if (Choice >= 1 && Choice <= NumOptions)
+        {
+            options[Choice - 1].Choose();
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a number between 1 and " + NumOptions);
+            SelectOption();
+        }
+    }
+    public void SelectOption(int Choice, Menu menu)
+    {
         if (Choice >= 1 && Choice <= NumOptions)
         {
             options[Choice - 1].Choose();
@@ -71,6 +86,7 @@ public class Menu
         try 
         {
             input = Console.ReadLine() ?? "";
+            Console.Clear();
         }
         catch (Exception e)
         {
@@ -78,5 +94,10 @@ public class Menu
             InputInformation();
         }
         return input;
+    }
+
+    public virtual void RunMenuFunctions()
+    {
+        Console.WriteLine("This menu is not yet implemented.");
     }
 }

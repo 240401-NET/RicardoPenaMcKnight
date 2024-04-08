@@ -34,6 +34,7 @@ public class Program
 
     public static User? currentUser = new User();
     public static List<User> users = new List<User>();
+    public static Character? currentCharacter;
     static void Main(string[] args)
     {
         // only load users if file exists
@@ -80,5 +81,12 @@ public class Program
             }
         }
         return -1;
+    }
+
+    public static void Exit()
+    {
+        Data.SaveCharacters(currentUser.Characters);
+        UpdateUsers();
+        Environment.Exit(0);
     }
 }

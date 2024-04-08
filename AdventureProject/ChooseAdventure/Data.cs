@@ -15,6 +15,11 @@ class Data
         string json = JsonSerializer.Serialize(users);
         File.WriteAllText("users.json", json);
     }
+    public static void SaveCharacters(List<Character> characters)
+    {
+        string json = JsonSerializer.Serialize(characters);
+        File.WriteAllText($"{Program.currentUser.UserName}characters.json", json);
+    }
 
     public static User LoadUser()
     {
@@ -26,5 +31,11 @@ class Data
     {
         string json = File.ReadAllText("users.json");
         return JsonSerializer.Deserialize<List<User>>(json);
+    }
+
+    public static List<Character> LoadCharacters()
+    {
+        string json = File.ReadAllText($"{Program.currentUser.UserName}characters.json");
+        return JsonSerializer.Deserialize<List<Character>>(json);
     }
 }

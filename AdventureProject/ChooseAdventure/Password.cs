@@ -16,11 +16,13 @@ public class Password
     {
         Console.WriteLine("Please enter a password.");
         string input = Console.ReadLine() ?? "";
+        Console.Clear();
         if(userExists)
         {
             if (input == Program.currentUser.Password)
             {
                 Console.WriteLine("Welcome, " + Program.currentUser.UserName);
+                Program.currentUser.Characters = Data.LoadCharacters();
                 MainMenu mainMenu = new();
             }
             else

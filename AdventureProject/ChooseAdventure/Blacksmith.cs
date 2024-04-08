@@ -11,6 +11,8 @@ public class Blacksmith : Menu
         options[1] = new Option("Buy Shield");
         options[2] = new Option("Exit");
         DisplayOptions();
-        SelectOption();
+        Console.WriteLine("No story beyond this point. Exiting...");
+        Console.ReadLine();
+        Program.Exit();
     }
 }
