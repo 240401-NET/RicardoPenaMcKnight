@@ -18,4 +18,34 @@ public class UnitTest1
         // Assert
         Assert.Equal(expected, actual);
     }
+
+    // Create useful unit test for ChooseAdventure
+    [Fact] 
+    public void User_UserName_Default()
+    {
+        // Arrange
+        User user = new User();
+        string expected = "Default";
+
+        // Act
+        string actual = user.UserName;
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    // Create useful unit test for ChooseAdventure
+    [Fact]
+    public void Character_MaxHealth_100()
+    {
+        // Arrange
+        Character character = new Character();
+        int expected = 100;
+
+        // Act
+        int actual = character.MaxHealth;
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
 }
