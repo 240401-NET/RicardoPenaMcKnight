@@ -1,0 +1,6 @@
+@TomogotchiP1_HostAddress = http://localhost:5217
+
+GET {{TomogotchiP1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
