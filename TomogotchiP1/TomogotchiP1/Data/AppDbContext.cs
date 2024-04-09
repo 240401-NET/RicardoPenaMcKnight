@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+
 using TomogotchiP1.Models; // Update with the actual namespace where your models are located
 
 namespace TomogotchiP1.Data

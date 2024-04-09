@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TomogotchiP1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3349fd1c223b82dc141ef81dfb06521ba2f0ae89")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20cf1f50277028eb111c946dfac1b853ac60cbf4")]
 [assembly: System.Reflection.AssemblyProductAttribute("TomogotchiP1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TomogotchiP1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
