@@ -22,4 +22,27 @@ public class PetsController : ControllerBase
     }
 
     // other CRUD operations here
+
+        // GET: api/Pets/5
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Pet>> GetPet(int id)
+    {
+        var pet = await _context.Pets.FindAsync(id);
+        if (pet == null)
+        {
+            return NotFound();
+        }
+        return pet;
+    }
+
+    // POST: api/Pets
+    [HttpPost]
+    public async Task<ActionResult<Pet>> PostPet(Pet pet)
+    {
+        _context.Pets.Add(pet);
+        await _context.SaveChangesAsync();
+        return CreatedAtAction("GetPet", new { id = pet.Id }, pet);
+    }
+
+    // Additional methods for PUT, DELETE etc. can be added here.
 }

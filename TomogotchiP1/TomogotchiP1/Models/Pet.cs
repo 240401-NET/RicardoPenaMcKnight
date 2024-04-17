@@ -26,7 +26,7 @@ namespace TomogotchiP1.Models
 
         [Required]
         [StringLength(50)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public LifeStage LifeStage { get; set; }
 
