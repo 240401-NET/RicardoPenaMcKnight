@@ -2,32 +2,33 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TomogotchiP1.Models;
 using TomogotchiP1.Data;
+using TomogotchiP1.Services;
 
 [Route("api/[controller]")]
 [ApiController]
 public class PetsController : ControllerBase
 {
-    private readonly AppDbContext _context;
+    private readonly PetService _petService;
 
-    public PetsController(AppDbContext context)
+    public PetsController(PetService petService)
     {
-        _context = context;
-    }
-
-    // GET: api/Pets
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<Pet>>> GetPets()
-    {
-        return await _context.Pets.ToListAsync();
+        _petService = petService;
     }
 
     // other CRUD operations here
 
-        // GET: api/Pets/5
-    [HttpGet("{id}")]
+    // Post a new pet using the PetServices method CreatePetAsync
+    [HttpPost]
+    public async Task<ActionResult<Pet>> PostPet(Pet pet)
+    {
+        await _petService.CreatePetAsync(pet);
+        return CreatedAtAction("GetPet", new { id = pet.Id }, pet);
+    }
+
+        [HttpGet("{id}")]
     public async Task<ActionResult<Pet>> GetPet(int id)
     {
-        var pet = await _context.Pets.FindAsync(id);
+        var pet = await _petService.GetPetByIdAsync(id);
         if (pet == null)
         {
             return NotFound();
@@ -35,14 +36,33 @@ public class PetsController : ControllerBase
         return pet;
     }
 
-    // POST: api/Pets
-    [HttpPost]
-    public async Task<ActionResult<Pet>> PostPet(Pet pet)
+    //Get all pets using the PetServices method GetAllPetsAsync
+    [HttpGet]
+    public async Task<IEnumerable<Pet>> GetPets()
     {
-        _context.Pets.Add(pet);
-        await _context.SaveChangesAsync();
-        return CreatedAtAction("GetPet", new { id = pet.Id }, pet);
+        return await _petService.GetAllPetsAsync();
     }
 
-    // Additional methods for PUT, DELETE etc. can be added here.
+
+
+    [HttpPost("feed/{id}")]
+    public async Task<IActionResult> FeedPet(int id)
+    {
+        await _petService.FeedPetAsync(id);
+        return NoContent();
+    }
+
+    [HttpPost("clean/{id}")]
+    public async Task<IActionResult> CleanPet(int id)
+    {
+        await _petService.CleanPetAsync(id);
+        return NoContent();
+    }
+
+    [HttpPost("play/{id}")]
+    public async Task<IActionResult> PlayWithPet(int id)
+    {
+        await _petService.PlayWithPetAsync(id);
+        return NoContent();
+    }
 }

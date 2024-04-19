@@ -12,7 +12,7 @@ namespace TomogotchiP1.Data
         }
 
         // DbSets for your entities
-        public DbSet<Pet> Pets { get; set; }
+        public virtual DbSet<Pet> Pets { get; set; }
         // Add DbSets for other entities like FoodItem, Activity, etc.
     }
 }

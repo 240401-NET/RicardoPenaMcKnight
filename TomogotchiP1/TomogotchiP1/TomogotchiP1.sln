@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TomogotchiP1", "TomogotchiP1.csproj", "{D4B59CBB-468B-419C-BDDD-253A1F622905}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TomogotchiP1.Tests", "..\Tests\TomogotchiP1.Tests\TomogotchiP1.Tests.csproj", "{FDA9EFAF-AEC6-4DD8-9E57-A44475DBFB69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D4B59CBB-468B-419C-BDDD-253A1F622905}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4B59CBB-468B-419C-BDDD-253A1F622905}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4B59CBB-468B-419C-BDDD-253A1F622905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDA9EFAF-AEC6-4DD8-9E57-A44475DBFB69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDA9EFAF-AEC6-4DD8-9E57-A44475DBFB69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDA9EFAF-AEC6-4DD8-9E57-A44475DBFB69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDA9EFAF-AEC6-4DD8-9E57-A44475DBFB69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

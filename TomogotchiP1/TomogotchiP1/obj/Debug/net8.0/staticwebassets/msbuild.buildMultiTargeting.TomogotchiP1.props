@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\TomogotchiP1.props" />
-</Project>
